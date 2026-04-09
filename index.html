@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>КИНКЭ — Морепродукты и деликатесы Дальнего Востока</title>
+  <meta name="description" content="Союз общин КМНС Хабаровского края «КИНКЭ» — легальный поставщик морепродуктов с Дальнего Востока. Краб, гребешок, рыба, икра — прямая добыча." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header" id="header">
+    <div class="header__logo">
+      <svg class="header__logo-icon" width="14" height="20" viewBox="0 0 28 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <polygon points="14,1 27,20 14,39 1,20" stroke="currentColor" stroke-width="1.5" fill="none"/>
+        <polygon points="14,10 21,20 14,30 7,20" fill="currentColor"/>
+      </svg>
+      <div class="header__logo-text-wrap">
+        <span class="header__logo-text">КИНКЭ</span>
+        <span class="header__logo-tagline">Союз общин коренных малочисленных народов Севера</span>
+      </div>
+    </div>
+    <nav class="header__nav">
+      <a href="#about">О нас</a>
+      <a href="#trust">Документы</a>
+      <a href="#products">Продукция</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+    <div class="header__right">
+      <a href="mailto:sale@kinke.ru" class="header__phone">sale@kinke.ru</a>
+    </div>
+    <button class="header__burger" id="burger" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- Mobile nav -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#about" class="mobile-nav__link">О нас</a>
+    <a href="#trust" class="mobile-nav__link">Документы</a>
+    <a href="#products" class="mobile-nav__link">Продукция</a>
+    <a href="#contact" class="mobile-nav__link">Контакты</a>
+    <a href="mailto:sale@kinke.ru" class="mobile-nav__link mobile-nav__phone">sale@kinke.ru</a>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <video class="hero__video" src="assets/video/hero.mp4" autoplay muted loop playsinline preload="auto"></video>
+    <div class="hero__video-fade"></div>
+    <div class="hero__overlay"></div>
+    <div class="hero__tag">Хабаровский край · Дальний Восток</div>
+    <h1 class="hero__title"><span>Дары океана.</span><span class="hero__title-sub">Прямо с Дальнего Востока.</span></h1>
+    <p class="hero__sub">Добываем сами — краб, гребешок, рыба, икра и морепродукты прямо из Охотского моря. Без посредников, с полным пакетом документов и по ценам производителя.</p>
+    <a href="#products" class="btn btn--dark">В каталог</a>
+    <div class="hero__scroll">Листайте вниз</div>
+  </section>
+
+  <!-- ===== О НАС ===== -->
+  <section class="about reveal" id="about">
+    <div class="container">
+      <div class="about__grid">
+        <div class="about__text">
+          <h2 class="section-title">Союз общин<br/>коренных народов<br/>Севера «КИНКЭ»</h2>
+          <p>Мы — объединение общин коренных малых народов Севера Хабаровского края. Ведём промышленную добычу водных биологических ресурсов в Северо-Охотоморской подзоне и подзоне Приморья.</p>
+          <p>Работаем строго в рамках законодательства РФ, в соответствии с Приказом Амурского территориального управления Росрыболовства. Ищем надёжных партнёров для долгосрочного взаимовыгодного сотрудничества.</p>
+          <div class="about__stats">
+            <div class="about__stat">
+              <span class="about__stat-num">2</span>
+              <span class="about__stat-label">района добычи</span>
+            </div>
+            <div class="about__stat">
+              <span class="about__stat-num">20+</span>
+              <span class="about__stat-label">видов продукции</span>
+            </div>
+            <div class="about__stat">
+              <span class="about__stat-num">100</span>
+              <span class="about__stat-label">кг — минимальный опт</span>
+            </div>
+          </div>
+        </div>
+        <div class="about__zones">
+          <div class="zone-card">
+            <div class="zone-card__map" id="map-a"></div>
+            <div class="zone-card__content">
+              <span class="zone-card__label">Зона А</span>
+              <h3>Северо-Охотоморская подзона</h3>
+              <ul>
+                <li>Краб камчатский</li>
+                <li>Краб колючий</li>
+                <li>Краб синий</li>
+                <li>Камбала дальневосточная</li>
+                <li>Минтай</li>
+                <li>Сельдь тихоокеанская</li>
+              </ul>
+            </div>
+          </div>
+          <div class="zone-card">
+            <div class="zone-card__map" id="map-b"></div>
+            <div class="zone-card__content">
+              <span class="zone-card__label">Зона Б</span>
+              <h3>Подзона Приморья<br/>севернее мыса Золотой</h3>
+              <ul>
+                <li>Краб волосатый четырёхугольный</li>
+                <li>Краб-стригун опилио</li>
+                <li>Креветка северная и гребенчатая</li>
+                <li>Кукумария, ламинарии</li>
+                <li>Трубачи, треска</li>
+                <li>Минтай, сельдь</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ДОВЕРИЕ ===== -->
+  <section class="trust reveal" id="trust">
+    <div class="container">
+      <h2 class="section-title text-center">Работаем официально</h2>
+      <p class="section-sub text-center">Все разрешения, сертификаты и статусы подтверждены государственными органами</p>
+      <div class="trust__grid">
+        <div class="trust__card">
+          <div class="trust__icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="12" y2="17"/></svg></div>
+          <h4>Приказ Росрыболовства</h4>
+          <p>№248-П от 29.12.2025 Амурского территориального управления «О предоставлении водных биологических ресурсов»</p>
+        </div>
+        <div class="trust__card">
+          <div class="trust__icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+          <h4>Экспорт в КНР</h4>
+          <p>Входим в Перечень поставщиков сырья для рыбоперерабатывающих предприятий-экспортёров в Китайскую Народную Республику</p>
+        </div>
+        <div class="trust__card">
+          <div class="trust__icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v5c0 5.5-3.8 10.7-8 12-4.2-1.3-8-6.5-8-12V6z"/><polyline points="9 12 11 14 15 10"/></svg></div>
+          <h4>Система «Меркурий»</h4>
+          <p>Вся продукция оформляется в ФГИС «Меркурий» — электронная ветеринарная сертификация гарантирует прослеживаемость</p>
+        </div>
+        <div class="trust__card">
+          <div class="trust__icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3"/></svg></div>
+          <h4>Реквизиты организации</h4>
+          <p>ОГРН —<br/>ИНН/КПП —<br/>г. Хабаровск</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ПРЕИМУЩЕСТВА ===== -->
+  <section class="features reveal">
+    <div class="container">
+      <h2 class="section-title text-center">Единая цепочка</h2>
+      <p class="section-sub text-center">От моря до вашего склада — без посредников</p>
+      <div class="features__diagram">
+        <div class="features__item features__item--tl">
+          <div class="features__item-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><line x1="12" y1="7" x2="12" y2="20"/><path d="M6 11h12"/><path d="M6 19.5C6 16.5 8.7 14 12 14s6 2.5 6 5.5"/></svg></div>
+          <h4>Прямая добыча</h4>
+          <p>Добываем сами в двух промысловых зонах — никаких перекупщиков</p>
+        </div>
+        <div class="features__item features__item--tr">
+          <div class="features__item-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="8" width="12" height="11" rx="1"/><path d="M14 12h3.4L20 15.5V19h-6"/><circle cx="6" cy="19" r="1.5"/><circle cx="18" cy="19" r="1.5"/></svg></div>
+          <h4>Доставка</h4>
+          <p>Авто и авиатранспортом с территории Хабаровского края по всей России</p>
+        </div>
+        <div class="features__center">
+          <svg width="22" height="32" viewBox="0 0 28 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <polygon points="14,1 27,20 14,39 1,20" stroke="currentColor" stroke-width="1.5" fill="none"/>
+            <polygon points="14,10 21,20 14,30 7,20" fill="currentColor"/>
+          </svg>
+        </div>
+        <div class="features__item features__item--bl">
+          <div class="features__item-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><polyline points="9 15 11 17 15 13"/></svg></div>
+          <h4>Легальность</h4>
+          <p>Работаем по лицензии Росрыболовства, входим в реестр экспортёров КНР</p>
+        </div>
+        <div class="features__item features__item--br">
+          <div class="features__item-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div>
+          <h4>Цена от добытчика</h4>
+          <p>Оптовые цены без наценок посредников, стоимость зависит от объёма</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ПРОДУКЦИЯ ===== -->
+  <section class="products reveal" id="products">
+    <div class="container">
+      <h2 class="section-title text-center">Наша продукция</h2>
+      <p class="section-sub text-center">Цены определяются индивидуально в зависимости от объёма и условий доставки</p>
+
+      <div class="products__tabs">
+        <button class="products__tab active" data-tab="crab">Краб</button>
+        <button class="products__tab" data-tab="scallop">Гребешок</button>
+        <button class="products__tab" data-tab="fish">Рыба</button>
+        <button class="products__tab" data-tab="seafood">Морепродукты</button>
+        <button class="products__tab" data-tab="caviar">Икра</button>
+      </div>
+
+      <div class="products__panels">
+
+        <!-- КРАБ -->
+        <div class="products__panel active" id="tab-crab">
+          <div class="products__panel-grid">
+            <div class="products__category">
+              <h3>Краб камчатский</h3>
+              <ul class="products__list">
+                <li>Конечности варено-мороженые L</li>
+                <li>Конечности варено-мороженые 2L</li>
+                <li>Конечности варено-мороженые 3L</li>
+                <li>Конечности варено-мороженые 4L–5L</li>
+                <li>Целый (в/м)</li>
+                <li>Салатное мясо (кусковой)</li>
+                <li>Фаланга мелкая</li>
+                <li>Фаланга 8–10 см</li>
+                <li>Фаланга 10–12 см</li>
+                <li>Фаланга 12+</li>
+                <li>Краб живой</li>
+              </ul>
+            </div>
+            <div class="products__category">
+              <h3>Другие виды краба</h3>
+              <ul class="products__list">
+                <li>Краб колючий живой</li>
+                <li>Краб колючий целый в/м</li>
+                <li>Краб синий в/м целый + конечности</li>
+                <li>Мясо краба синего (салат+фаланга)</li>
+                <li>Краб-стригун опилио в/м</li>
+                <li>Краб-стригун опилио конечности в/м</li>
+                <li>Краб волосатый целый в/м</li>
+              </ul>
+            </div>
+          </div>
+          <a href="#contact" class="btn btn--outline">Запросить цены на краб</a>
+        </div>
+
+        <!-- ГРЕБЕШОК -->
+        <div class="products__panel" id="tab-scallop">
+          <div class="products__panel-grid">
+            <div class="products__category">
+              <h3>Гребешок приморский</h3>
+              <ul class="products__list">
+                <li>Гребешок живой 10–11 шт/кг</li>
+                <li>Гребешок живой 12+ шт/кг</li>
+                <li>Гребешок мороженый</li>
+                <li>Гребешок на полустворке 9–10 см</li>
+                <li>Филе гребешка 10–20 шт/кг (штучная заморозка)</li>
+                <li>Филе гребешка 20–30 шт/кг (штучная заморозка)</li>
+                <li>Филе гребешка 35–40 шт/кг (штучная заморозка)</li>
+              </ul>
+            </div>
+          </div>
+          <a href="#contact" class="btn btn--outline">Запросить цены на гребешок</a>
+        </div>
+
+        <!-- РЫБА -->
+        <div class="products__panel" id="tab-fish">
+          <div class="products__panel-grid">
+            <div class="products__category">
+              <h3>Камбала</h3>
+              <ul class="products__list">
+                <li>Камбала синекорая 30+ см</li>
+                <li>Камбала синекорая 25–30 см</li>
+                <li>Камбала синекорая 21–25 см</li>
+                <li>Камбала синекорая до 21 см</li>
+                <li>Камбала желтопёрая 25–30 см</li>
+                <li>Камбала желтопёрая 21–25 см</li>
+                <li>Камбала белобрюхая/желтополосая 25+ см</li>
+                <li>Камбала дальневосточная (ассорти)</li>
+              </ul>
+            </div>
+            <div class="products__category">
+              <h3>Рыба</h3>
+              <ul class="products__list">
+                <li>Терпуг</li>
+                <li>Треска от 2 кг</li>
+                <li>Минтай 35+ см</li>
+                <li>Минтай до 35 см</li>
+                <li>Минтай мороженый</li>
+                <li>Навага</li>
+                <li>Навага мороженая</li>
+                <li>Бычок</li>
+                <li>Корюшка малоротая мороженая</li>
+                <li>Красноперка-угаи дальневосточная</li>
+                <li>Кефаль мороженая</li>
+                <li>Сельдь тихоокеанская мороженая</li>
+              </ul>
+            </div>
+            <div class="products__category">
+              <h3>Лосось</h3>
+              <ul class="products__list">
+                <li>Кета мороженая</li>
+                <li>Горбуша мороженая</li>
+              </ul>
+            </div>
+          </div>
+          <a href="#contact" class="btn btn--outline">Запросить прайс на рыбу</a>
+        </div>
+
+        <!-- МОРЕПРОДУКТЫ -->
+        <div class="products__panel" id="tab-seafood">
+          <div class="products__panel-grid">
+            <div class="products__category">
+              <h3>Морепродукты</h3>
+              <ul class="products__list">
+                <li>Кальмар тихоокеанский мороженый</li>
+                <li>Креветка угловостая варено-мороженая</li>
+                <li>Креветка гребенчатая варено-мороженая</li>
+                <li>Креветка северная варено-мороженая</li>
+                <li>Осьминог Дофлейна мороженый</li>
+                <li>Трубач сыро-мороженый</li>
+                <li>Гуидак</li>
+                <li>Мидия Грэя мороженая</li>
+                <li>Кукумария</li>
+                <li>Трепанг дальневосточный живой</li>
+                <li>Ламинарии</li>
+              </ul>
+            </div>
+            <div class="products__category">
+              <h3>Устрицы</h3>
+              <ul class="products__list">
+                <li>Устрица императорская/Ромаринка 40–60 г</li>
+                <li>Устрица императорская/Ромаринка 60–100 г</li>
+                <li>Устрица императорская/Ромаринка 100–200 г</li>
+                <li>Устрица Маака КНР 60–80 г</li>
+                <li>Устрица Маака КНР 80–100 г</li>
+                <li>Устрица Маака КНР 100–150 г</li>
+              </ul>
+            </div>
+          </div>
+          <a href="#contact" class="btn btn--outline">Запросить цены на морепродукты</a>
+        </div>
+
+        <!-- ИКРА -->
+        <div class="products__panel" id="tab-caviar">
+          <div class="products__panel-grid">
+            <div class="products__category">
+              <h3>Икра красная</h3>
+              <ul class="products__list">
+                <li>Икра кеты</li>
+                <li>Икра горбуши</li>
+              </ul>
+            </div>
+          </div>
+          <a href="#contact" class="btn btn--outline">Запросить цены на икру</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== СОТРУДНИЧЕСТВО ===== -->
+  <section class="cooperation reveal">
+    <div class="container">
+      <div class="cooperation__grid">
+        <div>
+          <h2 class="section-title">Работаем<br/>с оптовиками,<br/>ресторанами<br/>и магазинами</h2>
+        </div>
+        <div class="cooperation__details">
+          <div class="cooperation__item">
+            <span class="cooperation__item-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></span>
+            <div>
+              <h4>Минимальный заказ</h4>
+              <p>Опт от 100 кг по большинству позиций</p>
+            </div>
+          </div>
+          <div class="cooperation__item">
+            <span class="cooperation__item-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="3"/><path d="M6 12h.01M18 12h.01"/></svg></span>
+            <div>
+              <h4>Цены</h4>
+              <p>Зависят от объёма и условий доставки. Отправьте запрос — вышлем актуальный прайс</p>
+            </div>
+          </div>
+          <div class="cooperation__item">
+            <span class="cooperation__item-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg></span>
+            <div>
+              <h4>Доставка</h4>
+              <p>С территории Хабаровского края. Возможна авто- и авиадоставка по всей России</p>
+            </div>
+          </div>
+          <div class="cooperation__item">
+            <span class="cooperation__item-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="12" y2="17"/></svg></span>
+            <div>
+              <h4>Документы</h4>
+              <p>Полный пакет: ФГИС «Меркурий», сертификаты качества, декларации соответствия</p>
+            </div>
+          </div>
+          <a href="#contact" class="btn btn--dark">Обсудить условия</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== КОНТАКТЫ ===== -->
+  <section class="contact reveal" id="contact">
+    <div class="container">
+      <h2 class="section-title text-center">Звоните. Пишите.<br/>Обсудим.</h2>
+      <div class="contact__grid">
+        <div class="contact__info">
+          <div class="contact__item">
+            <span class="contact__item-label">Представитель</span>
+            <span class="contact__item-val">—</span>
+          </div>
+          <div class="contact__item">
+            <span class="contact__item-label">Телефон</span>
+            <span class="contact__item-val">—</span>
+          </div>
+          <div class="contact__item">
+            <span class="contact__item-label">Email</span>
+            <a href="mailto:sale@kinke.ru" class="contact__item-val">sale@kinke.ru</a>
+          </div>
+          <div class="contact__item">
+            <span class="contact__item-label">Адрес</span>
+            <span class="contact__item-val">Хабаровский край</span>
+          </div>
+          <div class="contact__item">
+            <span class="contact__item-label">ОГРН / ИНН</span>
+            <span class="contact__item-val">—</span>
+          </div>
+        </div>
+        <div class="contact__form-placeholder">
+          <div class="contact__form-soon">
+            <span><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg></span>
+            <p>Форма обратной связи<br/>скоро будет здесь</p>
+            <p class="contact__form-sub">Пока пишите напрямую на почту<br/>или звоните</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__logo">
+        <svg width="12" height="18" viewBox="0 0 28 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <polygon points="14,1 27,20 14,39 1,20" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          <polygon points="14,10 21,20 14,30 7,20" fill="currentColor"/>
+        </svg>
+        <span>КИНКЭ</span>
+      </div>
+      <p class="footer__copy">© 2026 Союз общин КМНС Хабаровского края «КИНКЭ»<br/>Все права защищены. <a href="kinke.ru">kinke.ru</a></p>
+      <div class="footer__contacts">
+        <a href="mailto:sale@kinke.ru">sale@kinke.ru</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

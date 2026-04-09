@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>КИНКЭ — Роза ветров × Северная звезда</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: #000;
+      color: #fff;
+      padding: 72px 40px 100px;
+    }
+    h1 { font-size: 2rem; font-weight: 600; letter-spacing: -0.03em; margin-bottom: 8px; }
+    .sub { font-size: .9375rem; color: rgba(255,255,255,.4); letter-spacing: -0.02em; margin-bottom: 72px; }
+
+    .row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    /* ——— Карточка ——— */
+    .card {
+      background: #111;
+      border-radius: 16px;
+      padding: 40px 24px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .card--light { background: #f5f5f7; }
+
+    /* Иконка */
+    .icon-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100px;
+      margin-bottom: 32px;
+    }
+
+    /* Логотип (иконка + текст) */
+    .logotype-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 64px;
+      margin-bottom: 28px;
+    }
+
+    /* Светлый превью */
+    .light-wrap {
+      background: #f5f5f7;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 64px;
+      margin-bottom: 28px;
+    }
+
+    /* Мета */
+    .meta { border-top: 1px solid rgba(255,255,255,.08); padding-top: 20px; }
+    .card--light .meta { border-color: rgba(0,0,0,.1); }
+    .num {
+      font-size: .625rem; font-weight: 600; letter-spacing: .1em;
+      text-transform: uppercase; color: #2997ff; margin-bottom: 6px;
+    }
+    .name { font-size: .9375rem; font-weight: 600; letter-spacing: -0.022em; margin-bottom: 4px; }
+    .desc { font-size: .75rem; letter-spacing: -0.008em; color: rgba(255,255,255,.44); line-height: 1.55; }
+    .card--light .name { color: #1d1d1f; }
+    .card--light .desc { color: rgba(0,0,0,.48); }
+  </style>
+</head>
+<body>
+
+<h1>Роза ветров × Северная звезда</h1>
+<p class="sub">4 итерации — от звезды к компасу</p>
+
+<div class="row">
+
+  <!-- ===== A: 4-pointed elongated (исходная Северная звезда) ===== -->
+  <div class="card">
+    <div class="icon-wrap">
+      <svg width="80" height="80" viewBox="0 0 60 60" fill="none">
+        <path d="M30,2 L33,27 L58,30 L33,33 L30,58 L27,33 L2,30 L27,27Z" fill="white"/>
+      </svg>
+    </div>
+    <div class="logotype-wrap">
+      <svg width="180" height="44" viewBox="0 0 180 44" fill="none">
+        <path d="M16,2 L18.5,18.5 L35,20 L18.5,21.5 L16,38 L13.5,21.5 L-3,20 L13.5,18.5Z" fill="white"/>
+        <text x="46" y="26" font-family="Inter, sans-serif" font-size="19" font-weight="600" fill="white" letter-spacing="-0.4">КИНКЭ</text>
+      </svg>
+    </div>
+    <div class="light-wrap">
+      <svg width="180" height="44" viewBox="0 0 180 44" fill="none">
+        <path d="M16,2 L18.5,18.5 L35,20 L18.5,21.5 L16,38 L13.5,21.5 L-3,20 L13.5,18.5Z" fill="#1d1d1f"/>
+        <text x="46" y="26" font-family="Inter, sans-serif" font-size="19" font-weight="600" fill="#1d1d1f" letter-spacing="-0.4">КИНКЭ</text>
+      </svg>
+    </div>
+    <div class="meta">
+      <div class="num">А — исходник</div>
+      <div class="name">4 луча</div>
+      <div class="desc">Текущая Северная звезда. Лаконично, но нет намёка на компас.</div>
+    </div>
+  </div>
+
+  <!-- ===== B: 4+4 — star meets compass (sweet spot) ===== -->
+  <div class="card">
+    <div class="icon-wrap">
+      <svg width="80" height="80" viewBox="0 0 60 60" fill="none">
+        <!-- Главные 4 луча (N/S/E/W) — длинные -->
+        <path d="M30,2 L33,24 L58,30 L33,36 L30,58 L27,36 L2,30 L27,24Z" fill="white"/>
+        <!-- Диагональные 4 луча (NE/SE/SW/NW) — короткие -->
+        <path d="M30,10 L34.5,25.5 L50,10 L34.5,30 L50,50 L30,34.5 L10,50 L25.5,30 L10,10 L25.5,25.5Z" fill="white" fill-rule="evenodd"/>
+      </svg>
+    </div>
+    <div class="logotype-wrap">
+      <svg width="180" height="44" viewBox="0 0 180 44" fill="none">
+        <path d="M16,1 L18.2,13.5 L29,2 L18.8,15.8 L31,20 L18.8,24.2 L29,38 L18.2,26.5 L16,39 L13.8,26.5 L3,38 L13.2,24.2 L1,20 L13.2,15.8 L3,2 L13.8,13.5Z" fill="white"/>
+        <text x="46" y="26" font-family="Inter, sans-serif" font-size="19" font-weight="600" fill="white" letter-spacing="-0.4">КИНКЭ</text>
+      </svg>
+    </div>
+    <div class="light-wrap">
+      <svg width="180" height="44" viewBox="0 0 180 44" fill="none">
+        <path d="M16,1 L18.2,13.5 L29,2 L18.8,15.8 L31,20 L18.8,24.2 L29,38 L18.2,26.5 L16,39 L13.8,26.5 L3,38 L13.2,24.2 L1,20 L13.2,15.8 L3,2 L13.8,13.5Z" fill="#1d1d1f"/>
+        <text x="46" y="26" font-family="Inter, sans-serif" font-size="19" font-weight="600" fill="#1d1d1f" letter-spacing="-0.4">КИНКЭ</text>
+      </svg>
+    </div>
+    <div class="meta">
+      <div class="num">Б — sweet spot</div>
+      <div class="name">8 лучей, два слоя</div>
+      <div class="desc">Главные 4 луча длинные, диагональные — короче. Читается как звезда и как компас одновременно.</div>
+    </div>
+  </div>
+
+  <!-- ===== C: Classic 8-pointed compass rose ===== -->
+  <div class="card">
+    <div class="icon-wrap">
+      <svg width="80" height="80" viewBox="0 0 60 60" fill="none">
+        <!--
+          8-pointed compass rose
+          outer_cardinal = 27, outer_diagonal = 16, inner_notch = 7
+          sin22.5=0.3827 cos22.5=0.9239 sin45=0.7071 cos45=0.7071 sin67.5=0.9239 cos67.5=0.3827
+        -->
+        <path d="
+          M30,3
+          L32.68,23.53 L41.31,18.69 L36.47,27.32
+          L57,30
+          L36.47,32.68 L41.31,41.31 L32.68,36.47
+          L30,57
+          L27.32,36.47 L18.69,41.31 L23.53,32.68
+          L3,30
+          L23.53,27.32 L18.69,18.69 L27.32,23.53
+          Z
+        " fill="white"/>
+      </svg>
+    </div>
+    <div class="logotype-wrap">
+      <svg width="180" height="44" viewBox="0 0 180 44" fill="none">
+        <path d="
+          M20,2
+          L21.95,16.92 L27.98,13.09 L24.98,19.74
+          L39,22
+          L24.98,24.26 L27.98,30.91 L21.95,27.08
+          L20,42
+          L18.05,27.08 L12.02,30.91 L15.02,24.26
+          L1,22
+          L15.02,19.74 L12.02,13.09 L18.05,16.92
+          Z
+        " fill="white"/>
+        <text x="52" y="28" font-family="Inter, sans-serif" font-size="19" font-weight="600" fill="white" letter-spacing="-0.4">КИНКЭ</text>
+      </svg>
+    </div>
+    <div class="light-wrap">
+      <svg width="180" height="44" viewBox="0 0 180 44" fill="none">
+        <path d="
+          M20,2
+          L21.95,16.92 L27.98,13.09 L24.98,19.74
+          L39,22
+          L24.98,24.26 L27.98,30.91 L21.95,27.08
+          L20,42
+          L18.05,27.08 L12.02,30.91 L15.02,24.26
+          L1,22
+          L15.02,19.74 L12.02,13.09 L18.05,16.92
+          Z
+        " fill="#1d1d1f"/>
+        <text x="52" y="28" font-family="Inter, sans-serif" font-size="19" font-weight="600" fill="#1d1d1f" letter-spacing="-0.4">КИНКЭ</text>
+      </svg>
+    </div>
+    <div class="meta">
+      <div class="num">В — компас</div>
+      <div class="name">Роза ветров</div>
+      <div class="desc">Классическая 8-лучевая роза с перехватами. Узнаваемый навигационный символ. Более «морской» из всех.</div>
+    </div>
+  </div>
+
+  <!-- ===== D: Compass rose + outer ring ===== -->
+  <div class="card">
+    <div class="icon-wrap">
+      <svg width="80" height="80" viewBox="0 0 60 60" fill="none">
+        <!-- Outer ring -->
+        <circle cx="30" cy="30" r="28" stroke="white" stroke-width="0.8" fill="none" opacity="0.35"/>
+        <!-- 8-pointed fill -->
+        <path d="
+          M30,4
+          L32.68,23.53 L41.31,18.69 L36.47,27.32
+          L56,30
+          L36.47,32.68 L41.31,41.31 L32.68,36.47
+          L30,56
+          L27.32,36.47 L18.69,41.31 L23.53,32.68
+          L4,30
+          L23.53,27.32 L18.69,18.69 L27.32,23.53
+          Z
+        " fill="white"/>
+        <!-- Center dot -->
+        <circle cx="30" cy="30" r="3" fill="#000"/>
+        <!-- Tiny tick marks on ring at cardinal points -->
+        <line x1="30" y1="1.5" x2="30" y2="4.5" stroke="white" stroke-width="1" opacity="0.6"/>
+        <line x1="58.5" y1="30" x2="55.5" y2="30" stroke="white" stroke-width="1" opacity="0.6"/>
+        <line x1="30" y1="58.5" x2="30" y2="55.5" stroke="white" stroke-width="1" opacity="0.6"/>
+        <line x1="1.5" y1="30" x2="4.5" y2="30" stroke="white" stroke-width="1" opacity="0.6"/>
+      </svg>
+    </div>
+    <div class="logotype-wrap">
+      <svg width="180" height="44" viewBox="0 0 180 44" fill="none">
+        <!-- ring -->
+        <circle cx="21" cy="22" r="19.5" stroke="white" stroke-width="0.7" fill="none" opacity="0.3"/>
+        <!-- 8-pointed -->
+        <path d="
+          M21,3
+          L23.01,16.71 L29.49,12.56 L26.95,19.62
+          L40,22
+          L26.95,24.38 L29.49,31.44 L23.01,27.29
+          L21,41
+          L18.99,27.29 L12.51,31.44 L15.05,24.38
+          L2,22
+          L15.05,19.62 L12.51,12.56 L18.99,16.71
+          Z
+        " fill="white"/>
+        <circle cx="21" cy="22" r="2.2" fill="#111"/>
+        <text x="52" y="28" font-family="Inter, sans-serif" font-size="19" font-weight="600" fill="white" letter-spacing="-0.4">КИНКЭ</text>
+      </svg>
+    </div>
+    <div class="light-wrap">
+      <svg width="180" height="44" viewBox="0 0 180 44" fill="none">
+        <circle cx="21" cy="22" r="19.5" stroke="#1d1d1f" stroke-width="0.7" fill="none" opacity="0.25"/>
+        <path d="
+          M21,3
+          L23.01,16.71 L29.49,12.56 L26.95,19.62
+          L40,22
+          L26.95,24.38 L29.49,31.44 L23.01,27.29
+          L21,41
+          L18.99,27.29 L12.51,31.44 L15.05,24.38
+          L2,22
+          L15.05,19.62 L12.51,12.56 L18.99,16.71
+          Z
+        " fill="#1d1d1f"/>
+        <circle cx="21" cy="22" r="2.2" fill="#f5f5f7"/>
+        <text x="52" y="28" font-family="Inter, sans-serif" font-size="19" font-weight="600" fill="#1d1d1f" letter-spacing="-0.4">КИНКЭ</text>
+      </svg>
+    </div>
+    <div class="meta">
+      <div class="num">Г — с кольцом</div>
+      <div class="name">Роза + окружность</div>
+      <div class="desc">Роза ветров внутри тонкого круга с отметками. Самый детализированный. Хорошо смотрится крупно — на бланке, печати, вышивке.</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ——— Bottom recommendation ——— -->
+<div style="margin-top:64px; padding:40px; background:#111; border-radius:16px; display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center;">
+  <div>
+    <div style="font-size:.625rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#2997ff;margin-bottom:12px;">Мой выбор</div>
+    <div style="font-size:1.5rem;font-weight:600;letter-spacing:-0.03em;margin-bottom:12px;">Б — 8 лучей, два слоя</div>
+    <div style="font-size:.875rem;color:rgba(255,255,255,.5);letter-spacing:-0.014em;line-height:1.65;">
+      Главные 4 луча длинные и острые — это «звезда». Четыре диагональных короче — это «компас».
+      Читается на любом размере. Не теряет форму в 16px favicon и не выглядит перегруженным на большом баннере.
+      Это именно то среднее между двумя концепциями, о котором шла речь.
+    </div>
+  </div>
+  <!-- Preview bigger -->
+  <div style="display:flex;gap:32px;align-items:center;justify-content:center;">
+    <!-- 80px -->
+    <div style="text-align:center;">
+      <svg width="80" height="80" viewBox="0 0 60 60" fill="none">
+        <path d="M30,2 L33,24 L58,30 L33,36 L30,58 L27,36 L2,30 L27,24Z" fill="white"/>
+        <path d="M30,10 L34.5,25.5 L50,10 L34.5,30 L50,50 L30,34.5 L10,50 L25.5,30 L10,10 L25.5,25.5Z" fill="white" fill-rule="evenodd"/>
+      </svg>
+      <div style="font-size:.625rem;color:rgba(255,255,255,.3);margin-top:8px;letter-spacing:.06em;text-transform:uppercase;">80px</div>
+    </div>
+    <!-- 40px -->
+    <div style="text-align:center;">
+      <svg width="40" height="40" viewBox="0 0 60 60" fill="none">
+        <path d="M30,2 L33,24 L58,30 L33,36 L30,58 L27,36 L2,30 L27,24Z" fill="white"/>
+        <path d="M30,10 L34.5,25.5 L50,10 L34.5,30 L50,50 L30,34.5 L10,50 L25.5,30 L10,10 L25.5,25.5Z" fill="white" fill-rule="evenodd"/>
+      </svg>
+      <div style="font-size:.625rem;color:rgba(255,255,255,.3);margin-top:8px;letter-spacing:.06em;text-transform:uppercase;">40px</div>
+    </div>
+    <!-- 20px -->
+    <div style="text-align:center;">
+      <svg width="20" height="20" viewBox="0 0 60 60" fill="none">
+        <path d="M30,2 L33,24 L58,30 L33,36 L30,58 L27,36 L2,30 L27,24Z" fill="white"/>
+        <path d="M30,10 L34.5,25.5 L50,10 L34.5,30 L50,50 L30,34.5 L10,50 L25.5,30 L10,10 L25.5,25.5Z" fill="white" fill-rule="evenodd"/>
+      </svg>
+      <div style="font-size:.625rem;color:rgba(255,255,255,.3);margin-top:8px;letter-spacing:.06em;text-transform:uppercase;">20px</div>
+    </div>
+    <!-- 16px -->
+    <div style="text-align:center;">
+      <svg width="16" height="16" viewBox="0 0 60 60" fill="none">
+        <path d="M30,2 L33,24 L58,30 L33,36 L30,58 L27,36 L2,30 L27,24Z" fill="white"/>
+        <path d="M30,10 L34.5,25.5 L50,10 L34.5,30 L50,50 L30,34.5 L10,50 L25.5,30 L10,10 L25.5,25.5Z" fill="white" fill-rule="evenodd"/>
+      </svg>
+      <div style="font-size:.625rem;color:rgba(255,255,255,.3);margin-top:8px;letter-spacing:.06em;text-transform:uppercase;">16px</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

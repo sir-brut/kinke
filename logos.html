@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>КИНКЭ — Варианты логотипа</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #000;
+      color: #fff;
+      min-height: 100vh;
+      padding: 80px 40px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+    }
+    .intro {
+      font-size: .9375rem;
+      color: rgba(255,255,255,.48);
+      letter-spacing: -0.02em;
+      margin-bottom: 80px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: #141414;
+      border-radius: 16px;
+      padding: 48px 40px 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 140px;
+    }
+
+    .logo-area--light {
+      background: #f5f5f7;
+      border-radius: 10px;
+    }
+
+    .card-meta {
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding-top: 24px;
+    }
+
+    .card-num {
+      font-size: .6875rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: #2997ff;
+      margin-bottom: 8px;
+    }
+
+    .card-name {
+      font-size: 1.0625rem;
+      font-weight: 600;
+      letter-spacing: -0.022em;
+      margin-bottom: 6px;
+    }
+
+    .card-desc {
+      font-size: .8125rem;
+      letter-spacing: -0.008em;
+      color: rgba(255,255,255,.48);
+      line-height: 1.55;
+    }
+
+    /* Sizes row */
+    .sizes {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-top: 4px;
+    }
+    .sizes span {
+      font-size: .6875rem;
+      color: rgba(255,255,255,.3);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Варианты логотипа КИНКЭ</h1>
+  <p class="intro">5 концепций · тёмный и светлый фон · SVG</p>
+
+  <div class="grid">
+
+    <!-- ===================== ВАРИАНТ 1: Ромб-компас ===================== -->
+    <div class="card">
+      <div class="logo-area">
+        <svg width="200" height="56" viewBox="0 0 200 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Ромб: внешний + внутренний, сдвинут влево -->
+          <polygon points="24,4 40,28 24,52 8,28" stroke="white" stroke-width="1.5" fill="none"/>
+          <polygon points="24,14 32,28 24,42 16,28" fill="white"/>
+          <!-- Wordmark -->
+          <text x="54" y="34" font-family="Inter, Helvetica Neue, sans-serif" font-size="22" font-weight="600" fill="white" letter-spacing="-0.5">КИНКЭ</text>
+        </svg>
+      </div>
+      <div class="logo-area logo-area--light">
+        <svg width="200" height="56" viewBox="0 0 200 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="24,4 40,28 24,52 8,28" stroke="#1d1d1f" stroke-width="1.5" fill="none"/>
+          <polygon points="24,14 32,28 24,42 16,28" fill="#1d1d1f"/>
+          <text x="54" y="34" font-family="Inter, Helvetica Neue, sans-serif" font-size="22" font-weight="600" fill="#1d1d1f" letter-spacing="-0.5">КИНКЭ</text>
+        </svg>
+      </div>
+      <div class="card-meta">
+        <div class="card-num">01</div>
+        <div class="card-name">Ромб-компас</div>
+        <div class="card-desc">Внешний контур ромба + плотное ядро внутри. Читается как компас, точка на карте, твёрдость. Близко к текущему символу ◈ — но чище и геометричнее.</div>
+      </div>
+    </div>
+
+    <!-- ===================== ВАРИАНТ 2: Краб-минимал ===================== -->
+    <div class="card">
+      <div class="logo-area">
+        <svg width="200" height="64" viewBox="0 0 200 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Тело краба: эллипс -->
+          <ellipse cx="28" cy="32" rx="14" ry="10" fill="white"/>
+          <!-- Клешни (левые) -->
+          <path d="M14,27 C6,20 2,14 6,10 C10,6 14,10 14,16" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M14,37 C6,44 2,50 6,54 C10,58 14,54 14,48" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <!-- Клешни (правые) -->
+          <path d="M42,27 C50,20 54,14 50,10 C46,6 42,10 42,16" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M42,37 C50,44 54,50 50,54 C46,58 42,54 42,48" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <!-- Ноги (3 пары) -->
+          <line x1="20" y1="22" x2="14" y2="10" stroke="white" stroke-width="1" stroke-linecap="round"/>
+          <line x1="28" y1="22" x2="28" y2="8" stroke="white" stroke-width="1" stroke-linecap="round"/>
+          <line x1="36" y1="22" x2="42" y2="10" stroke="white" stroke-width="1" stroke-linecap="round"/>
+          <line x1="20" y1="42" x2="14" y2="54" stroke="white" stroke-width="1" stroke-linecap="round"/>
+          <line x1="28" y1="42" x2="28" y2="56" stroke="white" stroke-width="1" stroke-linecap="round"/>
+          <line x1="36" y1="42" x2="42" y2="54" stroke="white" stroke-width="1" stroke-linecap="round"/>
+          <!-- Wordmark -->
+          <text x="68" y="37" font-family="Inter, Helvetica Neue, sans-serif" font-size="22" font-weight="600" fill="white" letter-spacing="-0.5">КИНКЭ</text>
+        </svg>
+      </div>
+      <div class="logo-area logo-area--light">
+        <svg width="200" height="64" viewBox="0 0 200 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="28" cy="32" rx="14" ry="10" fill="#1d1d1f"/>
+          <path d="M14,27 C6,20 2,14 6,10 C10,6 14,10 14,16" stroke="#1d1d1f" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M14,37 C6,44 2,50 6,54 C10,58 14,54 14,48" stroke="#1d1d1f" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M42,27 C50,20 54,14 50,10 C46,6 42,10 42,16" stroke="#1d1d1f" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M42,37 C50,44 54,50 50,54 C46,58 42,54 42,48" stroke="#1d1d1f" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <line x1="20" y1="22" x2="14" y2="10" stroke="#1d1d1f" stroke-width="1" stroke-linecap="round"/>
+          <line x1="28" y1="22" x2="28" y2="8" stroke="#1d1d1f" stroke-width="1" stroke-linecap="round"/>
+          <line x1="36" y1="22" x2="42" y2="10" stroke="#1d1d1f" stroke-width="1" stroke-linecap="round"/>
+          <line x1="20" y1="42" x2="14" y2="54" stroke="#1d1d1f" stroke-width="1" stroke-linecap="round"/>
+          <line x1="28" y1="42" x2="28" y2="56" stroke="#1d1d1f" stroke-width="1" stroke-linecap="round"/>
+          <line x1="36" y1="42" x2="42" y2="54" stroke="#1d1d1f" stroke-width="1" stroke-linecap="round"/>
+          <text x="68" y="37" font-family="Inter, Helvetica Neue, sans-serif" font-size="22" font-weight="600" fill="#1d1d1f" letter-spacing="-0.5">КИНКЭ</text>
+        </svg>
+      </div>
+      <div class="card-meta">
+        <div class="card-num">02</div>
+        <div class="card-name">Краб-минимал</div>
+        <div class="card-desc">Абстрактный краб из тонких линий. Мгновенно считывается продукт. Подходит для favicon и нашивок. Самый «говорящий» из вариантов.</div>
+      </div>
+    </div>
+
+    <!-- ===================== ВАРИАНТ 3: Волна-горизонт ===================== -->
+    <div class="card">
+      <div class="logo-area">
+        <svg width="200" height="56" viewBox="0 0 200 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Два концентрических полукруга — горизонт/волна -->
+          <path d="M4,36 Q16,8 28,36" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M10,42 Q28,6 46,42" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <!-- Линия горизонта -->
+          <line x1="4" y1="44" x2="46" y2="44" stroke="white" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
+          <!-- Wordmark -->
+          <text x="60" y="34" font-family="Inter, Helvetica Neue, sans-serif" font-size="22" font-weight="600" fill="white" letter-spacing="-0.5">КИНКЭ</text>
+        </svg>
+      </div>
+      <div class="logo-area logo-area--light">
+        <svg width="200" height="56" viewBox="0 0 200 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4,36 Q16,8 28,36" stroke="#1d1d1f" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M10,42 Q28,6 46,42" stroke="#1d1d1f" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <line x1="4" y1="44" x2="46" y2="44" stroke="#1d1d1f" stroke-width="1" stroke-linecap="round" opacity="0.3"/>
+          <text x="60" y="34" font-family="Inter, Helvetica Neue, sans-serif" font-size="22" font-weight="600" fill="#1d1d1f" letter-spacing="-0.5">КИНКЭ</text>
+        </svg>
+      </div>
+      <div class="card-meta">
+        <div class="card-num">03</div>
+        <div class="card-name">Волна-горизонт</div>
+        <div class="card-desc">Две параллельные волны и линия горизонта — образ открытого моря. Максимально минималистично. Хорошо смотрится мелко, работает как watermark.</div>
+      </div>
+    </div>
+
+    <!-- ===================== ВАРИАНТ 4: Северная звезда ===================== -->
+    <div class="card">
+      <div class="logo-area">
+        <svg width="200" height="60" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- 4-лучевая звезда (вытянутая по вертикали) -->
+          <path d="M26,4 L30,26 L52,30 L30,34 L26,56 L22,34 L0,30 L22,26 Z" fill="white"/>
+          <!-- Wordmark -->
+          <text x="66" y="36" font-family="Inter, Helvetica Neue, sans-serif" font-size="22" font-weight="600" fill="white" letter-spacing="-0.5">КИНКЭ</text>
+        </svg>
+      </div>
+      <div class="logo-area logo-area--light">
+        <svg width="200" height="60" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M26,4 L30,26 L52,30 L30,34 L26,56 L22,34 L0,30 L22,26 Z" fill="#1d1d1f"/>
+          <text x="66" y="36" font-family="Inter, Helvetica Neue, sans-serif" font-size="22" font-weight="600" fill="#1d1d1f" letter-spacing="-0.5">КИНКЭ</text>
+        </svg>
+      </div>
+      <div class="card-meta">
+        <div class="card-num">04</div>
+        <div class="card-name">Северная звезда</div>
+        <div class="card-desc">4-лучевая звезда — отсылка к КМНС, навигации, Северо-Охотоморской зоне. Узнаваемая геометрия, хорошо держит форму от 12px до огромного размера.</div>
+      </div>
+    </div>
+
+    <!-- ===================== ВАРИАНТ 5: К-монограмма ===================== -->
+    <div class="card">
+      <div class="logo-area">
+        <svg width="200" height="60" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Буква К в круге -->
+          <circle cx="30" cy="30" r="26" stroke="white" stroke-width="1.5" fill="none"/>
+          <!-- К: вертикальная черта -->
+          <line x1="20" y1="14" x2="20" y2="46" stroke="white" stroke-width="3" stroke-linecap="round"/>
+          <!-- К: верхняя диагональ -->
+          <line x1="20" y1="30" x2="40" y2="14" stroke="white" stroke-width="3" stroke-linecap="round"/>
+          <!-- К: нижняя диагональ -->
+          <line x1="20" y1="30" x2="40" y2="46" stroke="white" stroke-width="3" stroke-linecap="round"/>
+          <!-- Wordmark -->
+          <text x="66" y="36" font-family="Inter, Helvetica Neue, sans-serif" font-size="22" font-weight="600" fill="white" letter-spacing="-0.5">КИНКЭ</text>
+        </svg>
+      </div>
+      <div class="logo-area logo-area--light">
+        <svg width="200" height="60" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="30" cy="30" r="26" stroke="#1d1d1f" stroke-width="1.5" fill="none"/>
+          <line x1="20" y1="14" x2="20" y2="46" stroke="#1d1d1f" stroke-width="3" stroke-linecap="round"/>
+          <line x1="20" y1="30" x2="40" y2="14" stroke="#1d1d1f" stroke-width="3" stroke-linecap="round"/>
+          <line x1="20" y1="30" x2="40" y2="46" stroke="#1d1d1f" stroke-width="3" stroke-linecap="round"/>
+          <text x="66" y="36" font-family="Inter, Helvetica Neue, sans-serif" font-size="22" font-weight="600" fill="#1d1d1f" letter-spacing="-0.5">КИНКЭ</text>
+        </svg>
+      </div>
+      <div class="card-meta">
+        <div class="card-num">05</div>
+        <div class="card-name">К-монограмма</div>
+        <div class="card-desc">Буква К в тонком круге — строгий корпоративный стиль. Работает как standalone иконка без wordmark. Подходит для печати, штампов, факсов, деловых документов.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="margin-top: 80px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,.08); display: flex; gap: 32px; flex-wrap: wrap;">
+    <div>
+      <div style="font-size:.6875rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:#2997ff; margin-bottom:8px;">Мой выбор</div>
+      <div style="font-size:1.25rem; font-weight:600; letter-spacing:-0.025em; margin-bottom:8px;">04 или 01</div>
+      <div style="font-size:.875rem; color:rgba(255,255,255,.48); letter-spacing:-0.014em; line-height:1.6; max-width:480px;">
+        Северная звезда — уникальна, несёт смысл (КМНС + навигация + Север). Ромб-компас — ближе к текущему символу, легко эволюционирует из того что уже есть на сайте.
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
