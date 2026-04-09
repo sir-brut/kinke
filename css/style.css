@@ -209,8 +209,12 @@ img { max-width: 100%; display: block; }
   font-weight: 400;
   letter-spacing: .03em;
   color: rgba(255,255,255,.3);
-  line-height: 1;
+  line-height: 1.3;
   white-space: nowrap;
+  max-width: 200px;
+}
+@media (max-width: 480px) {
+  .header__logo-tagline { display: none; }
 }
 
 .header__nav {
@@ -387,6 +391,9 @@ img { max-width: 100%; display: block; }
 }
 .hero__title-sub {
   white-space: nowrap;
+}
+@media (max-width: 520px) {
+  .hero__title-sub { white-space: normal; text-align: center; }
 }
 
 .hero__sub {
