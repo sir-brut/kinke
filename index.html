@@ -443,7 +443,12 @@
               <label for="cf-msg">Сообщение</label>
               <textarea id="cf-msg" name="message" rows="4" placeholder="Интересует краб — уточните наличие и цены" required></textarea>
             </div>
-            <button type="submit" class="btn btn--dark contact__form-submit">
+            <label class="contact__form-consent">
+              <input type="checkbox" id="cf-consent" />
+              <span>Я согласен с <a href="/privacy.html" target="_blank">политикой конфиденциальности</a></span>
+            </label>
+            <p class="contact__form-consent-error" hidden>Подтвердите согласие на обработку персональных данных</p>
+            <button type="submit" class="btn btn--dark contact__form-submit" disabled>
               <span class="cf-btn-text">Отправить</span>
               <span class="cf-btn-loading" hidden>Отправляем…</span>
             </button>

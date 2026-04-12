@@ -142,7 +142,20 @@ if (heroVideo) {
 /* ---------- Форма обратной связи (EmailJS) ---------- */
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
+  const consentBox   = document.getElementById('cf-consent');
+  const submitBtn2   = contactForm.querySelector('.contact__form-submit');
+  const consentErr   = contactForm.querySelector('.contact__form-consent-error');
+
+  consentBox.addEventListener('change', () => {
+    submitBtn2.disabled = !consentBox.checked;
+    if (consentBox.checked) consentErr.hidden = true;
+  });
+
   contactForm.addEventListener('submit', async (e) => {
+    if (!consentBox.checked) {
+      consentErr.hidden = false;
+      return;
+    }
     e.preventDefault();
 
     const btnText    = contactForm.querySelector('.cf-btn-text');
