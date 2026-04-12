@@ -11,6 +11,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>emailjs.init("EMAILJS_PUBLIC_KEY");</script>
 </head>
 <body>
 
@@ -422,11 +424,38 @@
           </div>
         </div>
         <div class="contact__form-placeholder">
-          <div class="contact__form-soon">
-            <span><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg></span>
-            <p>Форма обратной связи<br/>скоро будет здесь</p>
-            <p class="contact__form-sub">Пока пишите напрямую на почту<br/>или звоните</p>
-          </div>
+          <form class="contact__form" id="contactForm" novalidate>
+            <div class="contact__form-row">
+              <div class="contact__form-field">
+                <label for="cf-name">Имя</label>
+                <input type="text" id="cf-name" name="from_name" placeholder="Евгений" required />
+              </div>
+              <div class="contact__form-field">
+                <label for="cf-phone">Телефон</label>
+                <input type="tel" id="cf-phone" name="phone" placeholder="+7 000 000-00-00" required />
+              </div>
+            </div>
+            <div class="contact__form-field">
+              <label for="cf-email">Email</label>
+              <input type="email" id="cf-email" name="reply_to" placeholder="you@company.ru" required />
+            </div>
+            <div class="contact__form-field">
+              <label for="cf-msg">Сообщение</label>
+              <textarea id="cf-msg" name="message" rows="4" placeholder="Интересует краб — уточните наличие и цены" required></textarea>
+            </div>
+            <button type="submit" class="btn btn--dark contact__form-submit">
+              <span class="cf-btn-text">Отправить</span>
+              <span class="cf-btn-loading" hidden>Отправляем…</span>
+            </button>
+            <p class="contact__form-notice">Ответим в течение одного рабочего дня</p>
+            <div class="contact__form-success" hidden>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Заявка отправлена — свяжемся с вами в ближайшее время
+            </div>
+            <div class="contact__form-error" hidden>
+              Не удалось отправить. Напишите напрямую на <a href="mailto:sale@kinke.ru">sale@kinke.ru</a>
+            </div>
+          </form>
         </div>
       </div>
     </div>

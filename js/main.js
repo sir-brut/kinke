@@ -138,3 +138,37 @@ if (heroVideo) {
   }
   requestAnimationFrame(loopFade);
 }
+
+/* ---------- Форма обратной связи (EmailJS) ---------- */
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const btnText    = contactForm.querySelector('.cf-btn-text');
+    const btnLoading = contactForm.querySelector('.cf-btn-loading');
+    const success    = contactForm.querySelector('.contact__form-success');
+    const error      = contactForm.querySelector('.contact__form-error');
+    const submitBtn  = contactForm.querySelector('.contact__form-submit');
+
+    // Показываем состояние загрузки
+    btnText.hidden    = true;
+    btnLoading.hidden = false;
+    submitBtn.disabled = true;
+    success.hidden = true;
+    error.hidden   = true;
+
+    try {
+      await emailjs.sendForm('EMAILJS_SERVICE_ID', 'EMAILJS_TEMPLATE_ID', contactForm);
+      success.hidden = false;
+      contactForm.reset();
+    } catch (err) {
+      console.error('EmailJS error:', err);
+      error.hidden = false;
+    } finally {
+      btnText.hidden    = false;
+      btnLoading.hidden = true;
+      submitBtn.disabled = false;
+    }
+  });
+}
