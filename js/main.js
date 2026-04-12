@@ -159,7 +159,7 @@ if (contactForm) {
     error.hidden   = true;
 
     try {
-      await emailjs.sendForm('EMAILJS_SERVICE_ID', 'EMAILJS_TEMPLATE_ID', contactForm);
+      await emailjs.sendForm('service_gtollbj', 'template_f2f1g9g', contactForm);
       success.hidden = false;
       contactForm.reset();
     } catch (err) {
