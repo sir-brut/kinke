@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>КИНКЭ — Морепродукты Дальнего Востока оптом | Краб, гребешок, икра с доставкой</title>
+  <title>КИНКЭ — Морепродукты Дальнего Востока оптом | Краб, икра, гребешок</title>
   <meta name="description" content="КИНКЭ — поставщик морепродуктов с Дальнего Востока. Краб, гребешок, рыба, икра — прямая добыча, без посредников. Доставка в Москву и по всей России." />
   <meta name="mailru-domain" content="cd2PJMx9z3vFlU2H" />
 
@@ -27,8 +27,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <link rel="stylesheet" href="css/style.css" />
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <script>emailjs.init("rPXvuzkhQ1QQjFDB-");</script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
+  <script defer>document.addEventListener('DOMContentLoaded',()=>emailjs.init("rPXvuzkhQ1QQjFDB-"));</script>
 
   <!-- Schema.org structured data -->
   <script type="application/ld+json">
@@ -44,6 +44,11 @@
         "description": "Легальный поставщик морепродуктов с Дальнего Востока. Краб, гребешок, рыба, икра — прямая добыча без посредников.",
         "foundingDate": "2022",
         "taxID": "2724248465",
+        "identifier": [
+          { "@type": "PropertyValue", "name": "ИНН", "value": "2724248465" },
+          { "@type": "PropertyValue", "name": "ОГРН", "value": "1222700003888" },
+          { "@type": "PropertyValue", "name": "КПП", "value": "272401001" }
+        ],
         "legalName": "Союз общин коренных малочисленных народов Севера Хабаровского края «КИНКЭ»",
         "address": {
           "@type": "PostalAddress",
@@ -112,7 +117,8 @@
           "longitude": "135.0719"
         },
         "priceRange": "$$",
-        "servesCuisine": "Морепродукты"
+        "description": "Оптовый поставщик морепродуктов и рыбы с Дальнего Востока. Добыча в Охотском море. Доставка по всей России.",
+        "parentOrganization": { "@id": "https://kinke.ru/#organization" }
       },
       {
         "@type": "ItemList",
@@ -617,7 +623,7 @@
         </svg>
         <span>КИНКЭ</span>
       </div>
-      <p class="footer__copy">© 2026 Союз общин КМНС Хабаровского края «КИНКЭ»<br/>Все права защищены. <a href="kinke.ru">kinke.ru</a></p>
+      <p class="footer__copy">© 2026 Союз общин КМНС Хабаровского края «КИНКЭ»<br/>Все права защищены. <a href="https://kinke.ru">kinke.ru</a></p>
       <div class="footer__contacts">
         <a href="mailto:sale@kinke.ru">sale@kinke.ru</a>
       </div>
