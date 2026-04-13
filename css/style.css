@@ -1104,6 +1104,86 @@ a.contact__item-val:hover { color: var(--accent-dark); }
 }
 
 /* ============================================================
+   FAQ
+   ============================================================ */
+.faq {
+  background: var(--bg);
+  padding: 100px 0;
+}
+
+.faq__title {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 600;
+  color: var(--text);
+  text-align: center;
+  margin-bottom: 60px;
+  letter-spacing: -.02em;
+}
+
+.faq__list {
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.faq__item {
+  background: var(--white);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.faq__question {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  padding: 22px 24px;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  user-select: none;
+}
+
+.faq__question::after {
+  content: '';
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M5 7.5l5 5 5-5' stroke='%230071e3' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;
+  transition: transform .25s ease;
+}
+
+.faq__item.open .faq__question::after {
+  transform: rotate(180deg);
+}
+
+.faq__answer {
+  font-size: .95rem;
+  line-height: 1.65;
+  color: var(--text-mid);
+  padding: 0 24px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .35s ease, padding .35s ease;
+}
+
+.faq__item.open .faq__answer {
+  max-height: 300px;
+  padding: 0 24px 22px;
+}
+
+@media (max-width: 600px) {
+  .faq { padding: 80px 0; }
+  .faq__question { padding: 18px 20px; font-size: .95rem; }
+  .faq__answer { padding: 0 20px; }
+  .faq__item.open .faq__answer { padding: 0 20px 18px; }
+}
+
+/* ============================================================
    FOOTER
    ============================================================ */
 .footer {

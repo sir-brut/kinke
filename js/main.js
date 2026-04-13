@@ -185,3 +185,14 @@ if (contactForm) {
     }
   });
 }
+
+/* ---------- FAQ аккордеон ---------- */
+document.querySelectorAll('.faq__question').forEach(question => {
+  question.addEventListener('click', () => {
+    const item = question.closest('.faq__item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq__item.open').forEach(el => el.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+
