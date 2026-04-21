@@ -142,21 +142,51 @@ if (heroVideo) {
 /* ---------- Форма обратной связи (EmailJS) ---------- */
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
-  const consentBox   = document.getElementById('cf-consent');
-  const submitBtn2   = contactForm.querySelector('.contact__form-submit');
-  const consentErr   = contactForm.querySelector('.contact__form-consent-error');
+  const consentBox = document.getElementById('cf-consent');
+  const submitBtn2 = contactForm.querySelector('.contact__form-submit');
+  const consentErr = contactForm.querySelector('.contact__form-consent-error');
 
   consentBox.addEventListener('change', () => {
     submitBtn2.disabled = !consentBox.checked;
     if (consentBox.checked) consentErr.hidden = true;
   });
 
+  // Сбрасываем ошибку поля при вводе
+  contactForm.querySelectorAll('input, textarea').forEach(el => {
+    el.addEventListener('input', () => {
+      el.closest('.contact__form-field')?.classList.remove('contact__form-field--error');
+      const errSpan = el.closest('.contact__form-field')?.querySelector('.contact__form-field-error');
+      if (errSpan) errSpan.hidden = true;
+    });
+  });
+
+  function validateField(input, test) {
+    const ok = test(input.value.trim());
+    input.closest('.contact__form-field').classList.toggle('contact__form-field--error', !ok);
+    input.closest('.contact__form-field').querySelector('.contact__form-field-error').hidden = ok;
+    return ok;
+  }
+
   contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault(); // всегда первым — страница никогда не перезагружается
+
+    // Honeypot: если заполнено — бот, молча игнорируем
+    if (contactForm.querySelector('[name="website"]')?.value) return;
+
+    const nameInput  = document.getElementById('cf-name');
+    const phoneInput = document.getElementById('cf-phone');
+    const emailInput = document.getElementById('cf-email');
+
+    const nameOk  = validateField(nameInput,  v => v.length >= 2);
+    const phoneOk = validateField(phoneInput, v => v.replace(/\D/g, '').length >= 10);
+    const emailOk = validateField(emailInput, v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v));
+
+    if (!nameOk || !phoneOk || !emailOk) return;
+
     if (!consentBox.checked) {
       consentErr.hidden = false;
       return;
     }
-    e.preventDefault();
 
     const btnText    = contactForm.querySelector('.cf-btn-text');
     const btnLoading = contactForm.querySelector('.cf-btn-loading');
@@ -164,12 +194,11 @@ if (contactForm) {
     const error      = contactForm.querySelector('.contact__form-error');
     const submitBtn  = contactForm.querySelector('.contact__form-submit');
 
-    // Показываем состояние загрузки
-    btnText.hidden    = true;
-    btnLoading.hidden = false;
+    btnText.hidden     = true;
+    btnLoading.hidden  = false;
     submitBtn.disabled = true;
-    success.hidden = true;
-    error.hidden   = true;
+    success.hidden     = true;
+    error.hidden       = true;
 
     try {
       await emailjs.sendForm('service_gtollbj', 'template_f2f1g9g', contactForm);
@@ -181,7 +210,7 @@ if (contactForm) {
     } finally {
       btnText.hidden    = false;
       btnLoading.hidden = true;
-      submitBtn.disabled = false;
+      submitBtn.disabled = !consentBox.checked;
     }
   });
 }

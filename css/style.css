@@ -1018,6 +1018,20 @@ a.contact__item-val:hover { color: var(--accent-dark); }
   background: rgba(255,255,255,.09);
 }
 
+.contact__form-field--error input,
+.contact__form-field--error textarea {
+  border-color: #ff453a;
+  background: rgba(255,69,58,.08);
+}
+
+.contact__form-field-error {
+  font-family: var(--ff-sans);
+  font-size: .8125rem;
+  color: #ff453a;
+  letter-spacing: -0.008em;
+  margin-top: -2px;
+}
+
 .contact__form-submit { align-self: flex-start; margin-top: 4px; }
 .contact__form-submit:disabled { opacity: .35; cursor: not-allowed; pointer-events: none; }
 

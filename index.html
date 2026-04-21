@@ -634,19 +634,26 @@
         </div>
         <div class="contact__form-placeholder">
           <form class="contact__form" id="contactForm" novalidate>
+            <!-- honeypot: боты заполняют, люди нет -->
+            <div style="position:absolute;left:-9999px;opacity:0;pointer-events:none" aria-hidden="true">
+              <input type="text" name="website" tabindex="-1" autocomplete="off" />
+            </div>
             <div class="contact__form-row">
               <div class="contact__form-field">
                 <label for="cf-name">Имя</label>
-                <input type="text" id="cf-name" name="from_name" placeholder="Евгений" required />
+                <input type="text" id="cf-name" name="from_name" placeholder="Евгений" autocomplete="name" required />
+                <span class="contact__form-field-error" hidden>Укажите ваше имя</span>
               </div>
               <div class="contact__form-field">
                 <label for="cf-phone">Телефон</label>
-                <input type="tel" id="cf-phone" name="phone" placeholder="+7 000 000-00-00" required />
+                <input type="tel" id="cf-phone" name="phone" placeholder="+7 000 000-00-00" autocomplete="tel" required />
+                <span class="contact__form-field-error" hidden>Укажите корректный номер телефона</span>
               </div>
             </div>
             <div class="contact__form-field">
               <label for="cf-email">Email</label>
-              <input type="email" id="cf-email" name="reply_to" placeholder="you@company.ru" required />
+              <input type="email" id="cf-email" name="reply_to" placeholder="you@company.ru" autocomplete="email" required />
+              <span class="contact__form-field-error" hidden>Укажите корректный email</span>
             </div>
             <div class="contact__form-field">
               <label for="cf-msg">Сообщение</label>
